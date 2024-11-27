@@ -1,0 +1,8 @@
+/* Cart.css */
+.product-image {
+  width: 100%; /* Ajuste la largeur à 100% de son conteneur parent */
+  max-width: 150px; /* La largeur maximale de l'image */
+  height: auto; /* Garde la proportion de l'image */
+  object-fit: cover; /* S'assure que l'image couvre bien son conteneur */
+  border-radius: 10px; /* Arrondir les coins de l'image */
+}

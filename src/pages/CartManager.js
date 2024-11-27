@@ -1,33 +1,28 @@
+// CartManager.js
 import React, { useState } from 'react';
 import Cart from '../components/Cart'; // Composant affichant le panier
 import ProductCart from '../components/ProductCart'; // Composant affichant chaque produit
+import './CartManager.css';
 
 const CartManager = ({ products }) => {
-  // L'état du panier, initialisé à un tableau vide
   const [cart, setCart] = useState([]);
+  const [isCartVisible, setIsCartVisible] = useState(false);
 
-  // Fonction pour ajouter un produit au panier
   const handleAddToCart = (product) => {
-    // Vérifier si le produit est déjà dans le panier
     const existingProduct = cart.find(item => item.id === product.id);
-    
     if (existingProduct) {
-      // Si le produit existe déjà, on augmente la quantité
       setCart(cart.map(item => 
         item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
       ));
     } else {
-      // Sinon, on ajoute le produit avec une quantité de 1
       setCart([...cart, { ...product, quantity: 1 }]);
     }
   };
 
-  // Fonction pour supprimer un produit du panier
   const handleRemoveFromCart = (product) => {
     setCart(cart.filter(item => item.id !== product.id));
   };
 
-  // Fonction pour mettre à jour la quantité d'un produit dans le panier
   const handleUpdateQuantity = (product, action) => {
     if (action === 'increase') {
       setCart(cart.map(item => 
@@ -40,28 +35,44 @@ const CartManager = ({ products }) => {
     }
   };
 
+  const toggleCartVisibility = () => {
+    setIsCartVisible(!isCartVisible);
+  };
+
+  const itemCount = cart.reduce((count, item) => count + item.quantity, 0);
+
   return (
-    <div>
+    <div className="container">
       <h1>Restaurant Gourmet</h1>
 
-      {/* Affichage du menu de produits */}
+      {/* Icône du panier avec badge pour afficher le nombre d'articles */}
+      <div className="cart-icon" onClick={toggleCartVisibility}>
+        <img src="https://via.placeholder.com/50" alt="Panier" className="cart-icon-image" />
+        {itemCount > 0 && <span className="cart-item-count">{itemCount}</span>}
+      </div>
+
+      {/* Affichage du titre "Menu" */}
+      <h2>Menu</h2> {/* Le titre Menu avec le nouveau style */}
+
+      {/* Affichage des produits disponibles */}
       <div className="product-list">
-        <h2>Produits disponibles</h2>
         {products.map((product) => (
           <ProductCart 
             key={product.id} 
             product={product} 
-            onAddToCart={handleAddToCart} // Permet d'ajouter un produit au panier
+            onAddToCart={handleAddToCart} 
           />
         ))}
       </div>
 
-      {/* Affichage du panier */}
-      <Cart 
-        cart={cart} 
-        onRemoveFromCart={handleRemoveFromCart} 
-        onUpdateQuantity={handleUpdateQuantity} 
-      />
+      {/* Affichage du panier lorsque isCartVisible est true */}
+      {isCartVisible && (
+        <Cart 
+          cart={cart} 
+          onRemoveFromCart={handleRemoveFromCart} 
+          onUpdateQuantity={handleUpdateQuantity} 
+        />
+      )}
     </div>
   );
 };

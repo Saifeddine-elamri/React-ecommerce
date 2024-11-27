@@ -1,0 +1,65 @@
+/* src/components/Header.css */
+
+/* Style général du header */
+.header {
+  background: linear-gradient(to right, #FF8A00, #E52E71); /* Dégradé de couleurs */
+  color: white;
+  text-align: center;
+  padding: 50px 20px;
+  border-bottom: 5px solid #FF4081;
+  position: relative;
+}
+
+.header h1 {
+  font-size: 3rem;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Ombre pour un effet visuel */
+}
+
+.header p {
+  font-size: 1.2rem;
+  font-family: 'Arial', sans-serif;
+  font-weight: 300;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+  opacity: 0.8;
+}
+
+/* Animation d'apparition du texte */
+.header h1,
+.header p {
+  animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Style du texte au survol */
+.header h1:hover {
+  color: #FF4081; /* Change la couleur au survol */
+  text-shadow: 2px 2px 15px rgba(255, 255, 255, 0.7); /* Ombre lumineuse au survol */
+}
+
+/* Responsivité - Adaptation mobile */
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 2.5rem;
+  }
+
+  .header p {
+    font-size: 1rem;
+  }
+}

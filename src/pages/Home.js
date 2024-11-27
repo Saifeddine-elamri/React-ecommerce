@@ -5,11 +5,6 @@ import './Home.css';
 const Home = () => {
   return (
     <div className="home">
-      <header className="header">
-        <h1>Bienvenue chez Restaurant Gourmet</h1>
-        <p>Un lieu où la cuisine authentique rencontre l'innovation culinaire.</p>
-      </header>
-
       {/* Section à propos du restaurant */}
       <section className="about">
         <h2>À Propos de Nous</h2>
@@ -28,7 +23,7 @@ const Home = () => {
       {/* Section avec le menu */}
       <section className="menu">
         <h2>Notre Menu</h2>
-        <p>Découvrez notre menu, soigneusement conçu pour satisfaire tous les goûts.</p>
+        <p>Découvrez notre menu soigneusement conçu pour satisfaire tous les goûts et commander sur la page de commande</p>
         
       </section>
 

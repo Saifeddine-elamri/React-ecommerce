@@ -1,0 +1,209 @@
+/* CartManager.css */
+
+/* Container principal */
+.container {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Titre principal */
+h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Styles de l'icône du panier */
+.cart-icon {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #4CAF50;
+  border-radius: 50%;
+  padding: 12px;
+  cursor: pointer;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+  z-index: 1000;
+}
+
+.cart-icon:hover {
+  background-color: #45a049;
+}
+
+.cart-icon-image {
+  width: 35px;
+  height: 35px;
+}
+
+.cart-item-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: red;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 6px 12px;
+  border-radius: 50%;
+}
+
+/* Liste des produits du menu */
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+/* Style de chaque carte produit */
+.product-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.product-card .product-info {
+  padding: 15px;
+}
+
+.product-card .product-info h3 {
+  font-size: 1.25rem;
+  margin: 10px 0;
+}
+
+.product-card .product-info p {
+  font-size: 1rem;
+  color: #777;
+}
+
+.product-card .product-info .price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #4CAF50;
+  margin-top: 10px;
+}
+
+.product-card .product-info .add-to-cart-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.product-card .product-info .add-to-cart-btn:hover {
+  background-color: #45a049;
+}
+
+/* Style du panier */
+.cart {
+  position: fixed;
+  top: 10%;
+  right: 0;
+  width: 400px;
+  height: 80%;
+  background-color: #fff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  overflow-y: auto;
+  z-index: 999;
+  border-radius: 10px;
+}
+
+.cart h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.cart .cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.cart .cart-item img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+.cart .cart-item .item-info {
+  flex-grow: 1;
+}
+
+.cart .cart-item .item-info p {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+.cart .cart-total {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-top: 20px;
+}
+
+.cart .cart-total p {
+  margin-bottom: 15px;
+}
+
+.cart .checkout-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.cart .checkout-btn:hover {
+  background-color: #45a049;
+}
+/* CartManager.css */
+
+/* Titre de "Menu" */
+h2 {
+  font-size: 3rem; /* Grande taille pour le titre */
+  color: #333; /* Couleur sombre pour contraster avec le fond */
+  margin-top: 50px; /* Ajouter un espace au-dessus */
+  text-align: center; /* Centrer le texte */
+  font-family: 'Arial', sans-serif; /* Police claire et élégante */
+  font-weight: 600; /* Mettre un peu de gras */
+  letter-spacing: 2px; /* Espacement entre les lettres pour un effet visuel agréable */
+  text-transform: uppercase; /* Mettre le texte en majuscules */
+  padding-bottom: 20px; /* Un peu d'espace sous le titre */
+  border-bottom: 3px solid #4CAF50; /* Ajouter une ligne sous le titre pour plus d'élégance */
+  display: inline-block; /* Garder le titre compact */
+}
+
+h2::before {
+  content: ""; /* Ajouter un petit effet avant le titre */
+  display: block;
+  width: 60px; /* Taille de l'effet avant */
+  height: 3px; /* Épaisseur de la ligne */
+  background-color: #4CAF50; /* Couleur de la ligne */
+  margin: 0 auto 20px auto; /* Centrer l'effet au-dessus du titre */
+}
