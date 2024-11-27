@@ -1,33 +1,22 @@
-// src/pages/Home.js
-import React, { useState } from 'react';
-import { products } from '../data/products';
-import ProductCart from '../components/ProductCart';
+import React from 'react';
+import ProductCart from '../components/ProductCart'; // Composant pour afficher chaque produit
 
-const Home = () => {
-  const [cart, setCart] = useState([]);
-
-  const handleAddToCart = (product) => {
-    setCart([...cart, product]);
-    alert(`${product.name} ajouté au panier !`);
-  };
-
+const Home = ({ products, onAddToCart }) => {
   return (
     <div className="home">
-      <h2>Nos produits</h2>
+      <header className="restaurant-info">
+        <h1>Bienvenue au Restaurant Gourmet</h1>
+        <p>Découvrez nos plats délicieux faits maison, prêts à être commandés !</p>
+      </header>
+      <h2>Produits disponibles</h2>
       <div className="product-list">
         {products.map((product) => (
-          <ProductCart key={product.id} product={product} onAddToCart={handleAddToCart} />
+          <ProductCart 
+            key={product.id} 
+            product={product} 
+            onAddToCart={onAddToCart} // Permet d'ajouter un produit au panier
+          />
         ))}
-      </div>
-
-      <div className="cart">
-        <h3>Panier</h3>
-        <ul>
-          {cart.map((item, index) => (
-            <li key={index}>{item.name} - {item.price} €</li>
-          ))}
-        </ul>
-        <p>Total : {cart.reduce((total, item) => total + item.price, 0)} €</p>
       </div>
     </div>
   );

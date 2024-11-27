@@ -1,0 +1,74 @@
+/* Styles pour la navbar */
+.navbar {
+  background: linear-gradient(to right, #007bff, #00c6ff); /* Dégradé de couleur bleu */
+  color: white;
+  padding: 10px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre portée sous la navbar */
+  position: sticky;
+  top: 0; /* Rendre la navbar collante en haut de la page */
+  z-index: 1000; /* Assurez-vous que la navbar soit au-dessus d'autres éléments */
+}
+
+/* Conteneur de la navbar */
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px; /* Limiter la largeur maximale de la navbar */
+  margin: 0 auto; /* Centrer la navbar horizontalement */
+  padding: 0 20px;
+}
+
+/* Style pour le logo */
+.logo {
+  font-size: 30px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+/* Liens de navigation */
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+/* Style des liens */
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+/* Effet hover sur les liens */
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Ajout d'une couleur d'arrière-plan semi-transparente */
+  color: #ffcc00; /* Couleur de texte au survol */
+  transform: translateY(-3px); /* Effet de survol */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Ombre portée au survol */
+}
+
+/* Responsive: Pour mobile, réduire l'espacement et la taille des liens */
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-direction: column; /* Empiler les éléments sur les petits écrans */
+    align-items: center;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  .nav-link {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+}
