@@ -1,5 +1,4 @@
 import React from 'react';
-import CartManager from './CartManager'; // Gestion du panier et des produits
 import './Home.css';
 import { Link } from 'react-router-dom'; // Assurez-vous que React Router est bien installé
 

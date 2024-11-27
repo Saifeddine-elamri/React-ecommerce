@@ -1,0 +1,11 @@
+C:\Users\LENOVO\OneDrive\Bureau\ecommerce\back_dotnet\obj\Debug\net8.0\SimpleOrderAPI.csproj.AssemblyReference.cache
+C:\Users\LENOVO\OneDrive\Bureau\ecommerce\back_dotnet\obj\Debug\net8.0\SimpleOrderAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\LENOVO\OneDrive\Bureau\ecommerce\back_dotnet\obj\Debug\net8.0\SimpleOrderAPI.AssemblyInfoInputs.cache
+C:\Users\LENOVO\OneDrive\Bureau\ecommerce\back_dotnet\obj\Debug\net8.0\SimpleOrderAPI.AssemblyInfo.cs
+C:\Users\LENOVO\OneDrive\Bureau\ecommerce\back_dotnet\obj\Debug\net8.0\SimpleOrderAPI.csproj.CoreCompileInputs.cache
+C:\Users\LENOVO\OneDrive\Bureau\ecommerce\back_dotnet\obj\Debug\net8.0\SimpleOrderAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\LENOVO\OneDrive\Bureau\ecommerce\back_dotnet\obj\Debug\net8.0\SimpleOrderAPI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\LENOVO\OneDrive\Bureau\ecommerce\back_dotnet\obj\Debug\net8.0\SimpleOrderAPI.sourcelink.json
+C:\Users\LENOVO\OneDrive\Bureau\ecommerce\back_dotnet\obj\Debug\net8.0\SimpleOrderAPI.dll
+C:\Users\LENOVO\OneDrive\Bureau\ecommerce\back_dotnet\obj\Debug\net8.0\refint\SimpleOrderAPI.dll
+C:\Users\LENOVO\OneDrive\Bureau\ecommerce\back_dotnet\obj\Debug\net8.0\SimpleOrderAPI.pdb
