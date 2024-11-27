@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Home from './pages/Home'; 
-import Cart from './pages/Cart'; 
+import CartManager from './pages/CartManager'; 
 import { products } from './data/products'; 
 import Navbar from './components/Navbar'; // Importer la Navbar
 import Footer from './components/Footer'; // Importez le Footer
@@ -17,8 +17,8 @@ const App = () => {
     <Router>
      <Navbar/>
         <Routes>
-          <Route path="/" element={<Home products={products} onAddToCart={handleAddToCart} />} />
-          <Route path="/cart" element={<Cart cart={cart} />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/cart" element={<CartManager products={products} onAddToCart={handleAddToCart}/>} />
         </Routes>
       <Footer/>
     </Router>

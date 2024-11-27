@@ -1,23 +1,75 @@
 import React from 'react';
-import ProductCart from '../components/ProductCart'; // Composant pour afficher chaque produit
+import CartManager from './CartManager'; // Gestion du panier et des produits
+import './Home.css';
 
-const Home = ({ products, onAddToCart }) => {
+const Home = () => {
   return (
     <div className="home">
-      <header className="restaurant-info">
-        <h1>Bienvenue au Restaurant Gourmet</h1>
-        <p>Découvrez nos plats délicieux faits maison, prêts à être commandés !</p>
+      <header className="header">
+        <h1>Bienvenue chez Restaurant Gourmet</h1>
+        <p>Un lieu où la cuisine authentique rencontre l'innovation culinaire.</p>
       </header>
-      <h2>Produits disponibles</h2>
-      <div className="product-list">
-        {products.map((product) => (
-          <ProductCart 
-            key={product.id} 
-            product={product} 
-            onAddToCart={onAddToCart} // Permet d'ajouter un produit au panier
-          />
-        ))}
-      </div>
+
+      {/* Section à propos du restaurant */}
+      <section className="about">
+        <h2>À Propos de Nous</h2>
+        <p>
+          Chez Restaurant Gourmet, nous croyons que chaque repas doit être une expérience mémorable. 
+          Notre équipe passionnée s'efforce de vous offrir une cuisine de qualité, 
+          préparée avec des ingrédients frais et locaux. Nous vous proposons une sélection 
+          de plats inspirés des saveurs du monde entier, tout en gardant une touche de tradition.
+        </p>
+        <p>
+          Nous vous accueillons dans un cadre chaleureux, parfait pour un repas en famille, 
+          un dîner romantique ou une sortie entre amis.
+        </p>
+      </section>
+
+      {/* Section avec le menu */}
+      <section className="menu">
+        <h2>Notre Menu</h2>
+        <p>Découvrez notre menu, soigneusement conçu pour satisfaire tous les goûts.</p>
+        
+      </section>
+
+      {/* Section des témoignages */}
+      <section className="testimonials">
+        <h2>Avis Clients</h2>
+        <div className="testimonial">
+          <p>
+            "Un repas incroyable ! Les plats sont délicieux et le service impeccable. 
+            J'ai hâte de revenir !" - <strong>Marie D.</strong>
+          </p>
+        </div>
+        <div className="testimonial">
+          <p>
+            "Une expérience culinaire fantastique. Les saveurs sont uniques et le cadre est parfait." 
+            - <strong>Paul L.</strong>
+          </p>
+        </div>
+      </section>
+
+      {/* Section horaires d'ouverture */}
+      <section className="hours">
+        <h2>Nos Horaires</h2>
+        <p>Nous sommes ouverts tous les jours de la semaine :</p>
+        <ul>
+          <li>Lundi - Vendredi: 12:00 - 14:30 et 18:30 - 22:00</li>
+          <li>Samedi - Dimanche: 12:00 - 22:00</li>
+        </ul>
+      </section>
+
+      {/* Section promotions spéciales */}
+      <section className="promotions">
+        <h2>Offres Spéciales</h2>
+        <p>Profitez de nos offres exclusives du mois :</p>
+        <ul>
+          <li>10% de réduction sur toutes les pizzas les lundis</li>
+          <li>Menu spécial à prix réduit pour les groupes de 5 personnes ou plus</li>
+          <li>Offre anniversaire : dessert gratuit avec tout repas principal</li>
+        </ul>
+      </section>
+
     </div>
   );
 };
