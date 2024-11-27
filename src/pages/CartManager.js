@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import Cart from '../components/Cart'; // Composant affichant le panier
 import ProductCart from '../components/ProductCart'; // Composant affichant chaque produit
 import './CartManager.css';
+import { products } from '../data/products'; 
 
-const CartManager = ({ products }) => {
+
+
+
+const CartManager = () => {
   const [cart, setCart] = useState([]);
   const [isCartVisible, setIsCartVisible] = useState(false); // État pour afficher/masquer le panier
 
-  // Ajouter un produit au panier
   const handleAddToCart = (product) => {
     const existingProduct = cart.find(item => item.id === product.id);
     if (existingProduct) {
