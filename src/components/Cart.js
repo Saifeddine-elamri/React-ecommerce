@@ -1,29 +1,22 @@
-import Panier from '../data/panier.jpg';
 import React, { useState } from 'react';
+import Panier from '../data/panier.jpg';
 import './Cart.css';
+import CheckoutForm from './CheckoutForm'; // Import du composant CheckoutForm
 
 const Cart = ({ cart, onRemoveFromCart, onUpdateQuantity }) => {
-  const [isCartVisible, setIsCartVisible] = useState(false); // Etat pour contrôler l'affichage du panier
+  const [isCartVisible, setIsCartVisible] = useState(false); // État pour afficher/masquer le panier
+  const [isCheckoutVisible, setIsCheckoutVisible] = useState(false); // État pour afficher/masquer le formulaire de commande
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const itemCount = cart.reduce((count, item) => count + item.quantity, 0); // Nombre total d'articles dans le panier
 
+  // Fonction pour basculer l'affichage du panier
   const toggleCartVisibility = () => {
-    setIsCartVisible(!isCartVisible); // Bascule entre afficher et masquer
+    setIsCartVisible(!isCartVisible);
   };
 
-  // Fonction pour augmenter la quantité d'un produit
-  const handleIncrease = (item) => {
-    onUpdateQuantity(item, 'increase');
-  };
-
-  // Fonction pour diminuer la quantité d'un produit
-  const handleDecrease = (item) => {
-    onUpdateQuantity(item, 'decrease');
-  };
-
-  // Fonction pour supprimer un produit du panier
-  const handleRemove = (item) => {
-    onRemoveFromCart(item);
+  // Fonction pour afficher/masquer le formulaire de commande
+  const handleCheckoutClick = () => {
+    setIsCheckoutVisible(true); // Affiche le formulaire de commande
   };
 
   return (
@@ -49,22 +42,30 @@ const Cart = ({ cart, onRemoveFromCart, onUpdateQuantity }) => {
                     <p>{item.name}</p>
                     <p>{item.price} €</p>
                     <div className="quantity">
-                      <button onClick={() => handleDecrease(item)} className="quantity-btn">-</button>
+                      <button onClick={() => onUpdateQuantity(item, 'decrease')} className="quantity-btn">-</button>
                       <span>{item.quantity}</span>
-                      <button onClick={() => handleIncrease(item)} className="quantity-btn">+</button>
+                      <button onClick={() => onUpdateQuantity(item, 'increase')} className="quantity-btn">+</button>
                     </div>
-                    <button onClick={() => handleRemove(item)} className="remove-btn">Supprimer</button>
+                    <button onClick={() => onRemoveFromCart(item)} className="remove-btn">Supprimer</button>
                   </div>
                 </li>
               ))}
             </ul>
             <div className="cart-total">
               <p><strong>Total : </strong>{total.toFixed(2)} €</p>
-              <button className="checkout-btn">Commander</button>
+              {/* Afficher le bouton Commander */}
+              <button className="checkout-btn" onClick={handleCheckoutClick}>
+                Commander
+              </button>
             </div>
           </div>
         )}
       </div>
+
+      {/* Affichage du formulaire de commande (CheckoutForm) si isCheckoutVisible est true */}
+      {isCheckoutVisible && (
+        <CheckoutForm cart={cart} total={total} />
+      )}
     </div>
   );
 };

@@ -1,4 +1,3 @@
-// CartManager.js
 import React, { useState } from 'react';
 import Cart from '../components/Cart'; // Composant affichant le panier
 import ProductCart from '../components/ProductCart'; // Composant affichant chaque produit
@@ -6,8 +5,9 @@ import './CartManager.css';
 
 const CartManager = ({ products }) => {
   const [cart, setCart] = useState([]);
-  const [isCartVisible, setIsCartVisible] = useState(false);
+  const [isCartVisible, setIsCartVisible] = useState(false); // État pour afficher/masquer le panier
 
+  // Ajouter un produit au panier
   const handleAddToCart = (product) => {
     const existingProduct = cart.find(item => item.id === product.id);
     if (existingProduct) {
@@ -19,10 +19,12 @@ const CartManager = ({ products }) => {
     }
   };
 
+  // Supprimer un produit du panier
   const handleRemoveFromCart = (product) => {
     setCart(cart.filter(item => item.id !== product.id));
   };
 
+  // Mettre à jour la quantité d'un produit
   const handleUpdateQuantity = (product, action) => {
     if (action === 'increase') {
       setCart(cart.map(item => 
@@ -35,11 +37,12 @@ const CartManager = ({ products }) => {
     }
   };
 
+  // Basculer la visibilité du panier
   const toggleCartVisibility = () => {
-    setIsCartVisible(!isCartVisible);
+    setIsCartVisible(!isCartVisible); // Toggle la visibilité du panier
   };
 
-  const itemCount = cart.reduce((count, item) => count + item.quantity, 0);
+  const itemCount = cart.reduce((count, item) => count + item.quantity, 0); // Compte le nombre total d'articles
 
   return (
     <div className="container">
@@ -52,7 +55,7 @@ const CartManager = ({ products }) => {
       </div>
 
       {/* Affichage du titre "Menu" */}
-      <h2>Menu</h2> {/* Le titre Menu avec le nouveau style */}
+      <h2>Menu</h2>
 
       {/* Affichage des produits disponibles */}
       <div className="product-list">
