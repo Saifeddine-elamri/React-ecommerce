@@ -79,6 +79,49 @@ body {
   font-size: 2.2rem;
   margin-bottom: 20px;
 }
+/* Style pour le lien vers la page de commande */
+.order-link {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 25px;
+  background-color: #00BFAE; /* Couleur de fond principal */
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 30px; /* Coins arrondis pour un look moderne */
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Ombre subtile pour l'effet 3D */
+}
+
+/* Effet au survol */
+.order-link:hover {
+  background-color: #009C92; /* Lien devient plus sombre au survol */
+  transform: translateY(-3px); /* Lien se soulève légèrement au survol */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2); /* Ombre plus forte au survol */
+}
+
+/* Effet au focus pour l'accessibilité */
+.order-link:focus {
+  outline: none; /* Retirer le contour par défaut */
+  box-shadow: 0 0 0 2px rgba(0, 182, 174, 0.5); /* Ombre de focus pour la visibilité */
+}
+
+/* Animation de défilement */
+.order-link::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.order-link:hover::after {
+  transform: scaleX(1); /* Barre de soulignement qui apparaît au survol */
+}
 
 /* Section des témoignages */
 .testimonials {
@@ -114,55 +157,177 @@ body {
 }
 
 /* Section Horaires */
+/* Section des horaires */
 .hours {
-  background-color: var(--background-color);
-  padding: 40px;
-  border-radius: var(--border-radius);
-  box-shadow: 0 4px 10px var(--box-shadow-color);
-  margin-bottom: 30px;
+  background-color: #f9f9f9;  /* Fond clair pour un contraste doux */
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
 }
 
 .hours h2 {
   font-size: 2rem;
+  font-weight: bold;
+  color: #333;
   margin-bottom: 20px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.hours p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 15px;
+  line-height: 1.5;
 }
 
 .hours ul {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .hours li {
+  font-size: 1.1rem;
+  color: #333;
+  margin: 10px 0;
+  padding: 8px 0;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.hours li:hover {
+  background-color: #e0f7fa; /* Survol avec un léger fond bleu */
+}
+
+.hours .day {
+  font-weight: bold;
+  color: #00BFAE;  /* Accent sur les jours de la semaine */
+  margin-right: 10px;
   font-size: 1.2rem;
-  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .hours {
+    padding: 30px 15px;
+  }
+
+  .hours h2 {
+    font-size: 1.8rem;
+  }
+
+  .hours li {
+    font-size: 1rem;
+  }
+
+  .hours .day {
+    font-size: 1.1rem;
+  }
 }
 
 /* Section Promotions */
+/* Style général de la section promotions */
 .promotions {
-  background-color: var(--background-color);
-  padding: 40px;
-  border-radius: var(--border-radius);
-  box-shadow: 0 4px 10px var(--box-shadow-color);
-  margin-bottom: 30px;
+  background-color: #f9f9f9; /* Couleur de fond claire */
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1); /* Ombre douce pour un effet de profondeur */
+  margin-top: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Animation de survol pour la section */
+.promotions:hover {
+  transform: translateY(-5px); /* Légère élévation lors du survol */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Ombre plus intense lors du survol */
+}
+
+/* Titre de la section */
 .promotions h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #00BFAE; /* Couleur de texte dynamique */
+  margin-bottom: 10px;
+  text-align: center; /* Centrer le titre */
+  text-transform: uppercase;
+  letter-spacing: 2px; /* Espacement des lettres pour un effet plus aéré */
 }
 
+/* Sous-titre de la section */
+.promotions p {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+  font-style: italic;
+  letter-spacing: 1px;
+}
+
+/* Liste des promotions */
 .promotions ul {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .promotions li {
-  font-size: 1.1rem;
-  color: var(--secondary-color);
-  margin-bottom: 10px;
+  font-size: 18px;
+  margin: 10px 0;
+  padding-left: 20px;
+  position: relative;
+  line-height: 1.6;
 }
 
-/* Footer */
+/* Icône avant chaque élément de la liste */
+.promotions li::before {
+  content: '✔'; /* Symbole de coche avant chaque promotion */
+  position: absolute;
+  left: 0;
+  font-size: 20px;
+  color: #00BFAE; /* Couleur de l'icône */
+  top: 50%;
+  transform: translateY(-50%); /* Centrer verticalement */
+}
+
+/* Style de lien (si vous souhaitez ajouter un lien dans la liste) */
+.promotions a {
+  text-decoration: none;
+  color: #00BFAE;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.promotions a:hover {
+  color: #009C92; /* Changement de couleur au survol */
+}
+
+/* Réduire la taille de la section sur mobile */
+@media (max-width: 768px) {
+  .promotions {
+    padding: 20px;
+    margin-top: 20px;
+  }
+
+  .promotions h2 {
+    font-size: 24px;
+  }
+
+  .promotions p {
+    font-size: 14px;
+  }
+
+  .promotions li {
+    font-size: 16px;
+  }
+}
+
 .footer {
   background-color: var(--footer-background);
   color: var(--header-color);

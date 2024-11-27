@@ -1,6 +1,7 @@
 import React from 'react';
 import CartManager from './CartManager'; // Gestion du panier et des produits
 import './Home.css';
+import { Link } from 'react-router-dom'; // Assurez-vous que React Router est bien installé
 
 const Home = () => {
   return (
@@ -21,11 +22,15 @@ const Home = () => {
       </section>
 
       {/* Section avec le menu */}
-      <section className="menu">
-        <h2>Notre Menu</h2>
-        <p>Découvrez notre menu soigneusement conçu pour satisfaire tous les goûts et commander sur la page de commande</p>
-        
-      </section>
+
+	
+	<section className="menu">
+  	<h2>Notre Menu</h2>
+	  <p>Découvrez notre menu soigneusement conçu pour satisfaire tous les goûts et commander sur la page de commande.</p>
+  
+	  {/* Lien vers la page de commande */}
+	  <Link to="/cart" className="order-link">Accéder à la page de commande</Link>
+	</section>
 
       {/* Section des témoignages */}
       <section className="testimonials">
@@ -45,25 +50,27 @@ const Home = () => {
       </section>
 
       {/* Section horaires d'ouverture */}
-      <section className="hours">
-        <h2>Nos Horaires</h2>
-        <p>Nous sommes ouverts tous les jours de la semaine :</p>
-        <ul>
-          <li>Lundi - Vendredi: 12:00 - 14:30 et 18:30 - 22:00</li>
-          <li>Samedi - Dimanche: 12:00 - 22:00</li>
-        </ul>
-      </section>
+     <section className="hours">
+  <h2>Nos Horaires</h2>
+  <p>Nous sommes ouverts tous les jours de la semaine :</p>
+  <ul>
+    <li><span className="day">Lundi - Vendredi:</span> 12:00 - 14:30 et 18:30 - 22:00</li>
+    <li><span className="day">Samedi - Dimanche:</span> 12:00 - 22:00</li>
+  </ul>
+</section>
+
 
       {/* Section promotions spéciales */}
-      <section className="promotions">
-        <h2>Offres Spéciales</h2>
-        <p>Profitez de nos offres exclusives du mois :</p>
-        <ul>
-          <li>10% de réduction sur toutes les pizzas les lundis</li>
-          <li>Menu spécial à prix réduit pour les groupes de 5 personnes ou plus</li>
-          <li>Offre anniversaire : dessert gratuit avec tout repas principal</li>
-        </ul>
-      </section>
+ <section className="promotions">
+  <h2>Offres Spéciales</h2>
+  <p>Profitez de nos offres exclusives du mois :</p>
+  <ul>
+    <li>10% de réduction sur toutes les pizzas les lundis</li>
+    <li>Menu spécial à prix réduit pour les groupes de 5 personnes ou plus</li>
+    <li>Offre anniversaire : dessert gratuit avec tout repas principal</li>
+  </ul>
+</section>
+
 
     </div>
   );
