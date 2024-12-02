@@ -8,7 +8,7 @@ const ProductCard = ({ product, onAddToCart }) => {
       <h3>{product.name}</h3>
       <p>{product.description}</p>
       <p><strong>{product.price} €</strong></p>
-      <button onClick={() => onAddToCart(product)}>Ajouter au panier</button>
+      <button onClick={() => onAddToCart(product)}>+</button>
     </div>
   );
 };
