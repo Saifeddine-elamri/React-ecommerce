@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './CheckoutForm.css';
 
-const Checkout = ({ cart, onConfirm, onCancel }) => {
+const Checkout = ({ cart }) => {
   const [isSubmitting, setIsSubmitting] = useState(false); // État pour gérer l'envoi
   const [feedback, setFeedback] = useState(null); // État pour les messages de retour de l'API
   const [customerInfo, setCustomerInfo] = useState({
@@ -41,7 +41,7 @@ const handleOrderSubmission = async () => {
 
     if (response.ok) {
       setFeedback({ type: 'success', message: 'Commande validée avec succès !' });
-      onConfirm(); // Exécute la logique de confirmation côté parent
+       // Exécute la logique de confirmation côté parent
     } else {
       const errorData = await response.json();
       setFeedback({ type: 'error', message: errorData.message || 'Une erreur est survenue.' });
@@ -110,7 +110,7 @@ const handleOrderSubmission = async () => {
         >
           {isSubmitting ? 'Envoi en cours...' : 'Valider la commande'}
         </button>
-        <button className="cancel-btn" onClick={onCancel}>
+        <button className="cancel-btn" >
           Annuler
         </button>
       </div>

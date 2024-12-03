@@ -4,8 +4,8 @@ import ProductCart from '../components/ProductCart'; // Composant affichant chaq
 import './CartManager.css';
 import { products } from '../data/products'; // Produits
 
-const CartManager = () => {
-  const [cart, setCart] = useState([]);
+const CartManager = ({cart , setCart}) => {
+  
   const [isCartVisible, setIsCartVisible] = useState(false); // État pour afficher/masquer le panier
   const [selectedCategory, setSelectedCategory] = useState('plat'); // État pour la catégorie sélectionnée
 
