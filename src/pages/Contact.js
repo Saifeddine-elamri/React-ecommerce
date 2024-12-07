@@ -1,13 +1,8 @@
-// src/components/Contact.js
 import React, { useState } from 'react';
-import './Contact.css'; // Importation du fichier CSS pour le style
+import './Contact.css'; 
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
+  const [formData, setFormData] = useState({ name: '', email: '',message: '',});
 
   // Gérer la modification des champs du formulaire
   const handleChange = (e) => {

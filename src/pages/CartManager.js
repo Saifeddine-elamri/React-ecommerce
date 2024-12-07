@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import Cart from '../components/Cart'; // Composant affichant le panier
-import ProductCart from '../components/ProductCart'; // Composant affichant chaque produit
+import Cart from '../components/Cart'; 
+import ProductCart from '../components/ProductCart'; 
+import { products } from '../data/products'; 
 import './CartManager.css';
-import { products } from '../data/products'; // Produits
+
 
 const CartManager = ({cart , setCart}) => {
   
-  const [isCartVisible, setIsCartVisible] = useState(false); // État pour afficher/masquer le panier
-  const [selectedCategory, setSelectedCategory] = useState('plat'); // État pour la catégorie sélectionnée
+  const [isCartVisible, setIsCartVisible] = useState(false); 
+  const [selectedCategory, setSelectedCategory] = useState('plat'); 
 
   const handleAddToCart = (product) => {
     const existingProduct = cart.find(item => item.id === product.id);

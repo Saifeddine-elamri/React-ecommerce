@@ -31,22 +31,7 @@ const Home = () => {
 	  <Link to="/cart" className="order-link">Accéder à la page de commande</Link>
 	</section>
 
-      {/* Section des témoignages */}
-      <section className="testimonials">
-        <h2>Avis Clients</h2>
-        <div className="testimonial">
-          <p>
-            "Un repas incroyable ! Les plats sont délicieux et le service impeccable. 
-            J'ai hâte de revenir !" - <strong>Marie D.</strong>
-          </p>
-        </div>
-        <div className="testimonial">
-          <p>
-            "Une expérience culinaire fantastique. Les saveurs sont uniques et le cadre est parfait." 
-            - <strong>Paul L.</strong>
-          </p>
-        </div>
-      </section>
+
 
       {/* Section horaires d'ouverture */}
      <section className="hours">
@@ -70,6 +55,23 @@ const Home = () => {
   </ul>
 </section>
 
+
+      {/* Section des témoignages */}
+      <section className="testimonials">
+        <h2>Avis Clients</h2>
+        <div className="testimonial">
+          <p>
+            "Un repas incroyable ! Les plats sont délicieux et le service impeccable. 
+            J'ai hâte de revenir !" - <strong>Marie D.</strong>
+          </p>
+        </div>
+        <div className="testimonial">
+          <p>
+            "Une expérience culinaire fantastique. Les saveurs sont uniques et le cadre est parfait." 
+            - <strong>Paul L.</strong>
+          </p>
+        </div>
+      </section>
 
     </div>
   );

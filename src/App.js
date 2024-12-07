@@ -6,14 +6,14 @@ import Contact from './pages/Contact';
 import Navbar from './components/Navbar'; 
 import Footer from './components/Footer'; 
 import Header from './components/Header'; 
-import CheckoutForm from './components/CheckoutForm';
+import CheckoutForm from './pages/CheckoutForm';
 
 const App = () => {
-  const [cart, setCart] = useState([]); // Correctement déclaré
+  const [cart, setCart] = useState([]); 
 
   return (
     <Router>
-      <Navbar />
+       <Navbar />
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
