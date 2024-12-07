@@ -1,30 +1,22 @@
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using SimpleOrderAPI.Models;
-using SimpleOrderAPI.Controllers;
+using back_dotnet.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Ajout des services pour MVC
+// Ajouter le service pour le contexte avec PostgreSQL
+builder.Services.AddDbContext<CheckoutContext>(options =>
+    options.UseNpgsql(
+        builder.Configuration.GetConnectionString("DefaultConnection")
+    )
+);
+
+// Ajouter d'autres services
 builder.Services.AddControllers();
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowAll", policy =>
-    {
-        policy.AllowAnyOrigin()
-              .AllowAnyMethod()
-              .AllowAnyHeader();
-    });
-});
 
 var app = builder.Build();
 
-// Utilisation de CORS
-app.UseCors("AllowAll");
-
-// Enregistrement des contrôleurs
+// Configurer l'application
+app.UseHttpsRedirection();
+app.UseAuthorization();
 app.MapControllers();
-
-// Lancer l'application
 app.Run();

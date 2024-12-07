@@ -1,32 +1,48 @@
+using back_dotnet.Data;
+using back_dotnet.Models;
 using Microsoft.AspNetCore.Mvc;
-using SimpleOrderAPI.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace SimpleOrderAPI.Controllers
+namespace back_dotnet.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class OrdersController : ControllerBase
     {
-        private static List<Order> orders = new List<Order>(); // Liste en mémoire des commandes
+        private readonly CheckoutContext _context;
+
+        public OrdersController(CheckoutContext context)
+        {
+            _context = context;
+        }
 
         // POST: api/orders
         [HttpPost]
-        public IActionResult PostOrder([FromBody] Order order)
+        public async Task<IActionResult> CreateOrder([FromBody] Order order)
         {
-            if (order?.Cart == null || order.Cart.Count == 0 || string.IsNullOrEmpty(order.Customer?.Name) || string.IsNullOrEmpty(order.Customer?.Email))
+            if (order == null || order.Items.Count == 0)
             {
-                return BadRequest("Le panier ou les informations client sont manquants.");
+                return BadRequest("Invalid order data.");
             }
 
-            orders.Add(order); // Sauvegarde de la commande
-            return CreatedAtAction(nameof(GetOrders), new { id = orders.Count }, order); // Retourne la commande créée
+            // Calculate the total amount
+            order.TotalAmount = order.Items.Sum(item => item.Price * item.Quantity);
+
+            _context.Orders.Add(order);
+            await _context.SaveChangesAsync();
+
+            return Ok(new { message = "Order created successfully!" });
         }
 
         // GET: api/orders
         [HttpGet]
-        public IActionResult GetOrders()
+        public async Task<IActionResult> GetOrders()
         {
-            return Ok(orders); // Retourne toutes les commandes
+            var orders = await _context.Orders
+                .Include(o => o.Items)
+                .ToListAsync();
+
+            return Ok(orders);
         }
     }
 }

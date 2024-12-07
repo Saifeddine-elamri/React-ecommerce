@@ -1,21 +1,19 @@
-namespace SimpleOrderAPI.Models
+using System;
+using System.Collections.Generic;
+
+namespace back_dotnet.Models
 {
     public class Order
     {
-        public List<CartItem> Cart { get; set; }
-        public Customer Customer { get; set; }
-    }
+        public int Id { get; set; }
+        public string CustomerName { get; set; }
+        public string CustomerEmail { get; set; }
+        public string PickupDate { get; set; }
+        public string PickupTime { get; set; }
+        public string PaymentMethod { get; set; }
+        public decimal TotalAmount { get; set; }
 
-    public class CartItem
-    {
-        public string Name { get; set; }
-        public decimal Price { get; set; }
-        public int Quantity { get; set; }
-    }
-
-    public class Customer
-    {
-        public string Name { get; set; }
-        public string Email { get; set; }
+        // Navigation property
+        public List<OrderItem> Items { get; set; } = new List<OrderItem>();
     }
 }
