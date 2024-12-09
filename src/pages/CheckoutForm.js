@@ -57,7 +57,7 @@ const Checkout = ({ cart }) => {
       });
 
       if (response.ok) {
-        setFeedback({ type: 'success', message: 'Commande validée avec succès !' });
+        setFeedback({ type: 'success', message: 'Merci pour votre commande elle est validée !' });
       } else {
         const errorData = await response.json();
         setFeedback({ type: 'error', message: errorData.message || 'Une erreur est survenue.' });
