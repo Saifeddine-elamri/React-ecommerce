@@ -19,7 +19,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/cart" element={<CartManager cart={cart} setCart={setCart} />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/checkout" element={<CheckoutForm cart={cart} />} /> {/* Correctement orthographié */}
+        <Route path="/checkout" element={<CheckoutForm cart={cart} />} /> 
       </Routes>
       <Footer />
     </Router>

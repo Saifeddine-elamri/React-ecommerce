@@ -3,6 +3,7 @@ import Cart from '../components/Cart';
 import ProductCart from '../components/ProductCart'; 
 import { products } from '../data/products'; 
 import './CartManager.css';
+import Panier from '../data/panier.jpg';
 
 
 const CartManager = ({cart , setCart}) => {
@@ -54,11 +55,11 @@ const CartManager = ({cart , setCart}) => {
 
   return (
     <div className="container">
-      <h1>Restaurant Gourmet</h1>
+      <h1>Restaurant Saif</h1>
 
       {/* Icône du panier avec badge pour afficher le nombre d'articles */}
       <div className="cart-icon" onClick={toggleCartVisibility}>
-        <img src="https://via.placeholder.com/50" alt="Panier" className="cart-icon-image" />
+        <img src={Panier} alt="Panier" className="cart-icon-image" />
         {itemCount > 0 && <span className="cart-item-count">{itemCount}</span>}
       </div>
 
